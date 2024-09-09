@@ -1,0 +1,43 @@
+{
+  "menu": {
+    "FILE": "Fichier",
+    "NEWPROJECT": "Nouveau Projet...",
+    "OPENPROJECT": "Ouvrir Projet...",
+    "SAVEPROJECT": "Enregistrer Projet",
+    "SAVEPROJECTAS": "Enregistrer Projet Sous...",
+    "SETTINGS": "Paramètres...",
+    "EXPORTPROJECTS": "Exporter Projet",
+    "RECENTPROJECTS": "Projets Récents",
+    "CLEARHISTORY": "Effacer l'historique",
+    "EXIT": "Quitter",
+
+    "EDIT": "Éditer",
+    "CUT": "Couper",
+    "COPY": "Copier",
+    "PASTE": "Coller",
+    "UNDO": "Annuler",
+    "REDO": "Rétablir",
+
+    "RESOURCES": "Ressources",
+    "IMPORTRESOURCES": "Importer Ressources...",
+    "REPACKASSETS": "Reconditionner Actifs",
+    "IMAGESATLASES": "Atlas d'Images...",
+    "ANIMATIONSATLASES": "Atlas d'Animations...",
+    "SHADERMANAGER": "Gestionnaire de Shaders...",
+    "CREATEPLACEHOLDER": "Créer un Placeholder...",
+    "CREATEPERLINNOISE": "Créer un Bruit Perlin...",
+    "IMPORTSPRITE": "Importer une Animation de Sprite...",
+    "IMPORTETILESET": "Importer un Jeu de Tuiles...",
+
+    "WINDOW": "Fenêtre",
+    "TAGS": "Étiquettes",
+    "CUSTOMVARIABLES": "Variables Personnalisées",
+    "SPRITEANIMATIONS": "Animations de Sprite",
+    "SHADERUNIFORMS": "Uniformes de Shader",
+
+    "HELP": "Aide",
+    "DOCUMENTATION": "Documentation",
+    "CONSOLE": "Console",
+    "ABOUT": "À propos"
+  }
+}

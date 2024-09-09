@@ -16,7 +16,7 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
 
     private final VisCheckBox autoSaving, useANGLEGLES2, failSafeException;
     private final VisCheckBox enablePlugins;
-    private VisSelectBox<String> filterKeyMapping;
+    private VisSelectBox<String> filterKeyMapping, tranlationsfiles;
     private VisSlider uiScaleDensity, msaaSamples, fpsLimit;
 
     public GeneralSettings() {
@@ -31,6 +31,8 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
         getContentTable().add(failSafeException).left().padTop(5).padLeft(8).row();
 
         getContentTable().add(getKeyMappingTable()).left().padTop(5).row();
+
+        getContentTable().add(getTranslationsTable()).left().padTop(5).row();
 
         getContentTable().add(getUiScaleDensityTable()).left().padTop(5).row();
 
@@ -58,6 +60,18 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
         mappingTable.add(filterKeyMapping).padLeft(8);
 
         return mappingTable;
+    }
+
+    private Actor getTranslationsTable() {
+        SettingsManager settingsManager = facade.retrieveProxy(SettingsManager.NAME);
+
+        VisTable translationsTable = new VisTable();
+        translationsTable.add("Translations:").padLeft(8);
+        tranlationsfiles = StandardWidgetsFactory.createSelectBox(String.class);
+        tranlationsfiles.setItems(settingsManager.getTranslationsFiles());
+        translationsTable.add(tranlationsfiles).padLeft(8);
+
+        return translationsTable;
     }
 
     private Actor getUiScaleDensityTable() {
@@ -132,6 +146,10 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
         return (int) fpsLimit.getValue();
     }
 
+    private String getLang() {
+        return tranlationsfiles.getSelected();
+    }
+
     @Override
     public void translateSettingsToView() {
         autoSaving.setChecked(getSettings().autoSave);
@@ -142,6 +160,7 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
         uiScaleDensity.setValue(getSettings().uiScaleDensity);
         msaaSamples.setValue(getSettings().msaaSamples);
         fpsLimit.setValue(getSettings().fpsLimit);
+        tranlationsfiles.setSelected(getSettings().lang);
     }
 
     @Override
@@ -154,6 +173,7 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
         getSettings().uiScaleDensity = getUIScaleDensity();
         getSettings().msaaSamples = getMsaaSamples();
         getSettings().fpsLimit = getFPSLimit();
+        getSettings().lang = getLang();
         facade.sendNotification(MsgAPI.SAVE_EDITOR_CONFIG);
     }
 
@@ -166,7 +186,8 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
                 || !getSettings().keyBindingLayout.equals(filterKeyMapping.getSelected())
                 || getSettings().uiScaleDensity != getUIScaleDensity()
                 || getSettings().msaaSamples != getMsaaSamples()
-                || getSettings().fpsLimit != getFPSLimit();
+                || getSettings().fpsLimit != getFPSLimit()
+                || getSettings().lang != getLang();
     }
 
     @Override
@@ -176,6 +197,7 @@ public class GeneralSettings extends SettingsNodeValue<EditorConfigVO> {
                 || getSettings().enablePlugins != enablePlugins.isChecked()
                 || !getSettings().keyBindingLayout.equals(filterKeyMapping.getSelected())
                 || getSettings().msaaSamples != getMsaaSamples()
-                || getSettings().fpsLimit != getFPSLimit();
+                || getSettings().fpsLimit != getFPSLimit()
+                || getSettings().lang != getLang();
     }
 }

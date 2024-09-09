@@ -1,0 +1,43 @@
+{
+  "menu": {
+    "FILE": "Archivo",
+    "NEWPROJECT": "Nuevo Proyecto...",
+    "OPENPROJECT": "Abrir Proyecto...",
+    "SAVEPROJECT": "Guardar Proyecto",
+    "SAVEPROJECTAS": "Guardar Proyecto como...",
+    "SETTINGS": "Configuración...",
+    "EXPORTPROJECTS": "Exportar Proyecto",
+    "RECENTPROJECTS": "Proyectos Recientes",
+    "CLEARHISTORY": "Limpiar historial",
+    "EXIT": "Salir",
+
+    "EDIT": "Editar",
+    "CUT": "Cortar",
+    "COPY": "Copiar",
+    "PASTE": "Pegar",
+    "UNDO": "Deshacer",
+    "REDO": "Rehacer",
+
+    "RESOURCES": "Recursos",
+    "IMPORTRESOURCES": "Importar Recursos...",
+    "REPACKASSETS": "Repack Assets",
+    "IMAGESATLASES": "Imagenes Atlas...",
+    "ANIMATIONSATLASES": "Animaciones Atlas...",
+    "SHADERMANAGER": "Administrador de Shader...",
+    "CREATEPLACEHOLDER": "Create Placeholder...",
+    "CREATEPERLINNOISE": "Crear Ruido de Perlin...",
+    "IMPORTSPRITE": "Importar Animaciones Sprite Sheet...",
+    "IMPORTETILESET": "Importar Tile Set...",
+
+    "WINDOW": "Ventana",
+    "TAGS": "Etiqueta",
+    "CUSTOMVARIABLES": "Variables Personalizadas",
+    "SPRITEANIMATIONS": "Animaciones Sprite",
+    "SHADERUNIFORMS": "Shader Uniforms",
+
+    "HELP": "Ayuda",
+    "DOCUMENTATION": "Documentación",
+    "CONSOLE": "Consola",
+    "ABOUT": "Acerca de"
+  }
+}

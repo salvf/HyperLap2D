@@ -38,6 +38,10 @@ public class HyperLap2DUtils {
         return getRootPath() + File.separator + "configs" + File.separator + "keymaps";
     }
 
+    public static String getTranslationsPath() {
+        return System.getProperty("user.dir") + File.separator + "translations";
+    }
+
     public static String getRootPath() {
         String appRootDirectory = System.getProperty("user.home");
         if (SystemUtils.IS_OS_WINDOWS) {

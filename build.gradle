@@ -85,6 +85,14 @@ task dist(type: Jar) {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     from files(project.assetsDir);
 
+    doLast{
+        copy{
+            from "$project.ext.assetsDir/translations"
+            into "$buildDir/lib/translations"
+            include '**/*.json'
+        }
+    }
+
     manifest {
         attributes 'Main-Class': project.mainClassName
     }

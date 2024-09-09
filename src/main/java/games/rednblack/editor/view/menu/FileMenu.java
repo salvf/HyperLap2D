@@ -6,6 +6,7 @@ import com.kotcrab.vis.ui.widget.MenuItem;
 import com.kotcrab.vis.ui.widget.PopupMenu;
 import games.rednblack.editor.data.manager.PreferencesManager;
 import games.rednblack.editor.event.MenuItemListener;
+import games.rednblack.editor.proxy.SettingsManager;
 import games.rednblack.editor.renderer.utils.HyperJson;
 import games.rednblack.editor.utils.KeyBindingsLayout;
 import games.rednblack.h2d.common.view.ui.widget.H2DPopupMenu;
@@ -35,22 +36,22 @@ public class FileMenu extends H2DMenu {
     private final Array<MenuItem> recentProjectsMenuItems;
 
     public FileMenu() {
-        super("File"); //⌘⇧⌥
-        saveProject = new MenuItem("Save Project", new MenuItemListener(SAVE_PROJECT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.SAVE_PROJECT));
-        saveProjectAs = new MenuItem("Save Project As...", new MenuItemListener(SAVE_PROJECT_AS, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.SAVE_PROJECT_AS));
-        addItem(new MenuItem("New Project...", new MenuItemListener(NEW_PROJECT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.NEW_PROJECT)));
-        addItem(new MenuItem("Open Project...", new MenuItemListener(OPEN_PROJECT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.OPEN_PROJECT)));
+        super(SettingsManager.translationVO.menu.FILE); //⌘⇧⌥
+        saveProject = new MenuItem(SettingsManager.translationVO.menu.SAVEPROJECT, new MenuItemListener(SAVE_PROJECT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.SAVE_PROJECT));
+        saveProjectAs = new MenuItem(SettingsManager.translationVO.menu.SAVEPROJECTAS, new MenuItemListener(SAVE_PROJECT_AS, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.SAVE_PROJECT_AS));
+        addItem(new MenuItem(SettingsManager.translationVO.menu.NEWPROJECT, new MenuItemListener(NEW_PROJECT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.NEW_PROJECT)));
+        addItem(new MenuItem(SettingsManager.translationVO.menu.OPENPROJECT, new MenuItemListener(OPEN_PROJECT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.OPEN_PROJECT)));
         addItem(saveProject);
         addItem(saveProjectAs);
         //
         addSeparator();
 
-        export = new MenuItem("Export Project", new MenuItemListener(EXPORT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.EXPORT_PROJECT));
+        export = new MenuItem(SettingsManager.translationVO.menu.EXPORTPROJECTS, new MenuItemListener(EXPORT, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.EXPORT_PROJECT));
         addItem(export);
-        addItem(new MenuItem("Settings...", new MenuItemListener(SETTINGS, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.OPEN_SETTINGS)));
+        addItem(new MenuItem(SettingsManager.translationVO.menu.SETTINGS, new MenuItemListener(SETTINGS, null, FILE_MENU)).setShortcut(KeyBindingsLayout.getShortcutList(KeyBindingsLayout.OPEN_SETTINGS)));
         //
         addSeparator();
-        MenuItem recentProjectsMenuItem = new MenuItem("Recent Projects");
+        MenuItem recentProjectsMenuItem = new MenuItem(SettingsManager.translationVO.menu.RECENTPROJECTS);
         recentProjectsPopupMenu = new H2DPopupMenu();
         recentProjectsMenuItem.setSubMenu(recentProjectsPopupMenu);
         recentProjectsMenuItems = new Array<>();
@@ -61,7 +62,7 @@ public class FileMenu extends H2DMenu {
         reInitRecent(prefs.getRecentHistory());
         //
         addSeparator();
-        addItem(new MenuItem("Exit", new MenuItemListener(EXIT, null , FILE_MENU)));
+        addItem(new MenuItem(SettingsManager.translationVO.menu.EXIT, new MenuItemListener(EXIT, null , FILE_MENU)));
     }
 
     public String getFolderNameAndPath(String path) {
@@ -107,7 +108,7 @@ public class FileMenu extends H2DMenu {
             recentProjectsPopupMenu.addSeparator();
         }
 
-        MenuItem menuItem = new MenuItem("Clear history", new MenuItemListener(CLEAR_RECENT, null, FILE_MENU));
+        MenuItem menuItem = new MenuItem(SettingsManager.translationVO.menu.CLEARHISTORY, new MenuItemListener(CLEAR_RECENT, null, FILE_MENU));
         recentProjectsMenuItems.add(menuItem);
         recentProjectsPopupMenu.addItem(menuItem);
 
